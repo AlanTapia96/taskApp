@@ -1,0 +1,18 @@
+.form {
+  width: 50%;
+  margin: 1rem auto 0;
+}
+
+.h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgb(187, 183, 183);
+}
+
+.formItem {
+  margin-top: 0.7rem;
+}
+
+.button {
+  display: block;
+  width: 100%;
+}

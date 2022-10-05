@@ -1,0 +1,33 @@
+.listContainer {
+  margin-top: 3rem;
+}
+
+.noTaskCreated {
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.column {
+  max-height: 20rem;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: black;
+}
+
+.inProgressCol {
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
