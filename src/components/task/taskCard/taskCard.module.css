@@ -13,6 +13,12 @@
   font-size: 0.6rem;
 }
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .progressContainer {
   box-sizing: content-box;
   display: inline-block;
@@ -24,7 +30,7 @@
   padding: 2px 10px;
   display: flex;
   align-items: center;
-  margin-bottom: 0.3rem;
+  /* margin-bottom: 0.3rem; */
 }
 
 .toDo {
@@ -40,4 +46,37 @@
 .done {
   color: white;
   background-color: rgb(92, 167, 92);
+}
+
+.changeContainers {
+  display: flex;
+}
+
+.modalBody {
+  display: flex;
+  justify-content: space-around;
+}
+
+.progressContainerModal {
+  width: 40%;
+}
+
+.modalButton {
+  border: none;
+  width: 45%;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid rgb(114, 111, 111);
+  transition: all 0.3s ease;
+}
+
+.modalButton:hover,
+.active {
+  color: white;
+  background-color: rgb(114, 111, 111);
+  border: 1px solid lightgray;
+}
+
+.hide {
+  display: none;
 }

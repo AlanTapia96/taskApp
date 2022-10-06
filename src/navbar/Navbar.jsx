@@ -16,8 +16,8 @@ export function NavbarComp() {
             <Nav.Link as={Link} to="/tasks">
               Tasks
             </Nav.Link>
-            <Nav.Link as={Link} to="api">
-              API
+            <Nav.Link as={Link} to="/users">
+              Users
             </Nav.Link>
           </Nav>
         </Container>

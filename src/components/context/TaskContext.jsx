@@ -10,7 +10,7 @@ export function TaskContextProvider({ children }) {
   const [doneTasks, setDoneTasks] = useState([]);
 
   const createTask = (task) => {
-    setTasksByProgress(task);
+    setTask(task);
   };
 
   const deleteTask = (task) => {
@@ -24,7 +24,13 @@ export function TaskContextProvider({ children }) {
     setTotalTasks((prev) => prev - 1);
   };
 
-  const setTasksByProgress = (task) => {
+  const changeStatus = (task, newStatus) => {
+    deleteTask(task);
+    task.progress = newStatus;
+    setTask(task);
+  };
+
+  const setTask = (task) => {
     if (cardProgress[task.progress].name === "toDo") {
       setToDoTasks([...toDoTasks, task]);
     } else if (cardProgress[task.progress].name === "inProgress") {
@@ -41,6 +47,7 @@ export function TaskContextProvider({ children }) {
         totalTasks,
         createTask,
         deleteTask,
+        changeStatus,
         toDoTasks,
         inProgressTasks,
         doneTasks,

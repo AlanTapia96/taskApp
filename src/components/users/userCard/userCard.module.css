@@ -1,0 +1,21 @@
+.userCard {
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  border-radius: 10px;
+  border-bottom: 5px solid #fff;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  padding: 1rem 0;
+}
+
+.imageContainer {
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 100%;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.image {
+  border-radius: 100%;
+  border: 1px solid lightgray;
+}
