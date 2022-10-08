@@ -1,56 +1,56 @@
-import { useState, createContext } from "react";
-import { cardProgress } from "../const/cardProgress";
+import { useState, useEffect, createContext } from "react";
+import { initialTasks } from "../const/constants";
 
 export const TaskContext = createContext();
 
 export function TaskContextProvider({ children }) {
+  const [tasks, setTasks] = useState(initialTasks);
   const [totalTasks, setTotalTasks] = useState(0);
-  const [toDoTasks, setToDoTasks] = useState([]);
-  const [inProgressTasks, setInProgressTasks] = useState([]);
-  const [doneTasks, setDoneTasks] = useState([]);
 
-  const createTask = (task) => {
-    setTask(task);
+  useEffect(() => {
+    const taskStorage = JSON.parse(localStorage.getItem("tasks"));
+    const totalStorage = JSON.parse(localStorage.getItem("totalTasks"));
+
+    if (totalStorage > 0) {
+      setTasks(taskStorage);
+      setTotalTasks(totalStorage);
+    }
+  }, []);
+
+  useEffect(() => {
+    const taskStorage = JSON.stringify(tasks);
+    localStorage.setItem("tasks", taskStorage);
+    localStorage.setItem("totalTasks", totalTasks);
+  }, [tasks, totalTasks]);
+
+  const addTask = (task) => {
+    setTasks({
+      ...tasks,
+      ...tasks[task.progress].push(task),
+    });
+    setTotalTasks((prev) => prev + 1);
   };
 
   const deleteTask = (task) => {
-    if (cardProgress[task.progress].name === "toDo") {
-      setToDoTasks(toDoTasks.filter((t) => t.id !== task.id));
-    } else if (cardProgress[task.progress].name === "inProgress") {
-      setInProgressTasks(inProgressTasks.filter((t) => t.id !== task.id));
-    } else {
-      setDoneTasks(doneTasks.filter((t) => t.id !== task.id));
-    }
+    const deleted = tasks[task.progress].filter((t) => t.id !== task.id);
+    setTasks((prev) => ({ ...prev, ...(prev[task.progress] = deleted) }));
     setTotalTasks((prev) => prev - 1);
   };
 
   const changeStatus = (task, newStatus) => {
     deleteTask(task);
     task.progress = newStatus;
-    setTask(task);
-  };
-
-  const setTask = (task) => {
-    if (cardProgress[task.progress].name === "toDo") {
-      setToDoTasks([...toDoTasks, task]);
-    } else if (cardProgress[task.progress].name === "inProgress") {
-      setInProgressTasks([...inProgressTasks, task]);
-    } else {
-      setDoneTasks([...doneTasks, task]);
-    }
-    setTotalTasks((prev) => prev + 1);
+    addTask(task);
   };
 
   return (
     <TaskContext.Provider
       value={{
+        tasks,
+        addTask,
         totalTasks,
-        createTask,
         deleteTask,
         changeStatus,
-        toDoTasks,
-        inProgressTasks,
-        doneTasks,
       }}
     >
       {children}

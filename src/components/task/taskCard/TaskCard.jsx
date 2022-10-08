@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { TaskContext } from "../../context/TaskContext";
 import { Card, Button, DropdownButton, Dropdown, Modal } from "react-bootstrap";
-import { cardProgress } from "../../const/cardProgress";
+import { cardProgress } from "../../const/constants";
 import styles from "./taskCard.module.css";
 
 export default function TaskCard({ task }) {
@@ -16,7 +16,7 @@ export default function TaskCard({ task }) {
   };
   const handleShowModal = () => setShowModal(true);
 
-  const handleDelete = () => {
+  const handleDeleteTask = () => {
     deleteTask(task);
   };
 
@@ -25,7 +25,7 @@ export default function TaskCard({ task }) {
     setNewStatus(type);
   };
 
-  const handleSave = () => {
+  const handleSaveChange = () => {
     changeStatus(task, newStatus);
     handleCloseModal();
   };
@@ -55,7 +55,7 @@ export default function TaskCard({ task }) {
               drop="down"
               variant="secondary"
             >
-              <Dropdown.Item onClick={handleDelete}>Delete</Dropdown.Item>
+              <Dropdown.Item onClick={handleDeleteTask}>Delete</Dropdown.Item>
               <Dropdown.Item onClick={handleShowModal}>
                 Change status
               </Dropdown.Item>
@@ -93,7 +93,7 @@ export default function TaskCard({ task }) {
               <Button variant="secondary" onClick={handleCloseModal}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleSave}>
+              <Button variant="primary" onClick={handleSaveChange}>
                 Save Changes
               </Button>
             </Modal.Footer>

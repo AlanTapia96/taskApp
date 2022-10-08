@@ -5,7 +5,7 @@ import { TaskContext } from "../../context/TaskContext";
 import styles from "./taskForm.module.css";
 
 export default function TaskForm() {
-  const { createTask } = useContext(TaskContext);
+  const { addTask } = useContext(TaskContext);
   const form = useRef(null);
   const title = useRef(null);
   const description = useRef(null);
@@ -13,7 +13,7 @@ export default function TaskForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createTask({
+    addTask({
       id: uuid(),
       title: title.current.value,
       description: description.current.value,

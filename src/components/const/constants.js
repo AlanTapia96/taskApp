@@ -3,3 +3,9 @@ export const cardProgress = {
   inProgress: { name: "inProgress", friendlyName: "In progress" },
   done: { name: "done", friendlyName: "Done" },
 };
+
+export const initialTasks = {
+  toDo: [],
+  inProgress: [],
+  done: [],
+};
