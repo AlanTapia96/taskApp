@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
-import { TaskContext } from "../../context/TaskContext";
 import { Card, Button, DropdownButton, Dropdown, Modal } from "react-bootstrap";
+import { TaskContext } from "../../context/TaskContext";
+import { NotifContext } from "../../context/NotifContext";
 import { cardProgress } from "../../const/constants";
 import styles from "./taskCard.module.css";
 
 export default function TaskCard({ task }) {
   const { deleteTask, changeStatus } = useContext(TaskContext);
+  const notify = useContext(NotifContext);
   const [showModal, setShowModal] = useState(false);
   const [newStatus, setNewStatus] = useState("");
   const [buttonModalActive, setButtonModalActive] = useState(null);
@@ -18,6 +20,7 @@ export default function TaskCard({ task }) {
 
   const handleDeleteTask = () => {
     deleteTask(task);
+    notify("Task deleted");
   };
 
   const setActive = (type) => {
@@ -27,6 +30,7 @@ export default function TaskCard({ task }) {
 
   const handleSaveChange = () => {
     changeStatus(task, newStatus);
+    notify("Task modified");
     handleCloseModal();
   };
 

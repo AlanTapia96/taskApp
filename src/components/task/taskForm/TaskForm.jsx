@@ -2,10 +2,12 @@ import { useRef, useContext, useState } from "react";
 import uuid from "react-uuid";
 import { Button, Form } from "react-bootstrap";
 import { TaskContext } from "../../context/TaskContext";
+import { NotifContext } from "../../context/NotifContext";
 import styles from "./taskForm.module.css";
 
 export default function TaskForm() {
   const { addTask } = useContext(TaskContext);
+  const notify = useContext(NotifContext);
   const form = useRef(null);
   const title = useRef(null);
   const description = useRef(null);
@@ -19,7 +21,7 @@ export default function TaskForm() {
       description: description.current.value,
       progress,
     });
-
+    notify("Task added!");
     form.current.reset();
     setProgress("default");
   };

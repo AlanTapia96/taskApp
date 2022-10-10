@@ -4,7 +4,6 @@ import UsersContainer from "../components/users/usersContainer/UsersContainer";
 import { NavbarComp as Navbar } from "../navbar/Navbar";
 
 export default function Router() {
-  // const location = useLocation();
   return (
     <BrowserRouter>
       <Navbar />

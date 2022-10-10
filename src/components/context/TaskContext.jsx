@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { initialTasks } from "../const/constants";
 
 export const TaskContext = createContext();
@@ -24,23 +24,24 @@ export function TaskContextProvider({ children }) {
   }, [tasks, totalTasks]);
 
   const addTask = (task) => {
-    setTasks({
-      ...tasks,
-      ...tasks[task.progress].push(task),
-    });
+    setTasks({ ...tasks, [task.progress]: [...tasks[task.progress], task] });
     setTotalTasks((prev) => prev + 1);
   };
 
   const deleteTask = (task) => {
     const deleted = tasks[task.progress].filter((t) => t.id !== task.id);
-    setTasks((prev) => ({ ...prev, ...(prev[task.progress] = deleted) }));
+    setTasks((prev) => ({ ...prev, [task.progress]: deleted }));
     setTotalTasks((prev) => prev - 1);
   };
 
   const changeStatus = (task, newStatus) => {
-    deleteTask(task);
-    task.progress = newStatus;
-    addTask(task);
+    const deleted = tasks[task.progress].filter((t) => t.id !== task.id);
+    const taskModifed = { ...task, progress: newStatus };
+    setTasks((prev) => ({
+      ...prev,
+      [task.progress]: deleted,
+      [newStatus]: [...tasks[newStatus], taskModifed],
+    }));
   };
 
   return (
