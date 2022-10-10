@@ -1,5 +1,5 @@
 .form {
-  width: 50%;
+  width: 80%;
   margin: 1rem auto 0;
 }
 
@@ -15,4 +15,10 @@
 .button {
   display: block;
   width: 100%;
+}
+
+@media (min-width: 576px) {
+  .form {
+    width: 50%;
+  }
 }

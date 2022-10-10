@@ -94,9 +94,6 @@ export default function TaskCard({ task }) {
               ))}
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseModal}>
-                Close
-              </Button>
               <Button variant="primary" onClick={handleSaveChange}>
                 Save Changes
               </Button>

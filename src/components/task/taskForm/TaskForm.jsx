@@ -30,12 +30,18 @@ export default function TaskForm() {
     <form onSubmit={handleSubmit} ref={form} className={styles.form}>
       <h2 className={styles.h2}>Add Task</h2>
       <div className={styles.formItem}>
-        <Form.Control type="text" placeholder="Enter title" ref={title} />
+        <Form.Control
+          type="text"
+          placeholder="Enter title"
+          required
+          ref={title}
+        />
       </div>
       <div className={styles.formItem}>
         <Form.Control
           as="textarea"
           ref={description}
+          required
           placeholder="Enter description"
         />
       </div>
@@ -46,7 +52,7 @@ export default function TaskForm() {
           }}
           defaultValue={progress}
         >
-          <option value="default" disabled hidden>
+          <option value="default" disabled>
             Select progress
           </option>
           <option value="toDo">To do</option>

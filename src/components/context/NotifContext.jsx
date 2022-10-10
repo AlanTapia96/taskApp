@@ -6,8 +6,8 @@ export const NotifContext = createContext();
 
 export default function NotifContextProvider({ children }) {
   const notify = (message) => {
-    toast.info(message, {
-      position: "bottom-right",
+    toast.success(message, {
+      position: "top-right",
       autoClose: 1000,
       hideProgressBar: true,
       closeOnClick: true,
@@ -19,7 +19,7 @@ export default function NotifContextProvider({ children }) {
   return (
     <NotifContext.Provider value={notify}>
       <ToastContainer
-        position="bottom-right"
+        position="top-right"
         autoClose={1000}
         hideProgressBar
         newestOnTop

@@ -70,11 +70,15 @@
   transition: all 0.3s ease;
 }
 
-.modalButton:hover,
-.active {
+.modalButton:hover {
   color: white;
-  background-color: rgb(114, 111, 111);
+  background-color: rgb(186, 181, 181);
   border: 1px solid lightgray;
+}
+
+.active {
+  background-color: rgb(114, 111, 111);
+  color: white;
 }
 
 .hide {

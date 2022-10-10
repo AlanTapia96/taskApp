@@ -8,7 +8,9 @@ userService.getUsers = async function (page) {
 };
 
 userService.getUsersByGender = async function (gender) {
-  return await fetch(`${apiUrl}?gender=${gender}`).then((res) => res.json());
+  return await fetch(`${apiUrl}?gender=${gender}&results=8`).then((res) =>
+    res.json()
+  );
 };
 
 export default userService;

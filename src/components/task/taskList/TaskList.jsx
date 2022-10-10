@@ -16,7 +16,7 @@ export default function TaskList() {
     <Container className={styles.listContainer}>
       {!isLoaded && <h1>Cargando...</h1>}
       {isLoaded && totalTasks === 0 ? (
-        <h2 className={styles.noTaskCreated}>No hay tareas creadas</h2>
+        <h2 className={styles.noTaskCreated}>No tasks created</h2>
       ) : isLoaded && totalTasks > 0 ? (
         <Tabs defaultActiveKey="toDo" className="mb-3" justify>
           <Tab eventKey="toDo" title="To do" className={styles.tab}>
@@ -33,7 +33,7 @@ export default function TaskList() {
               ))}
             </div>
           </Tab>
-          <Tab eventKey="done" title="Done" className={styles.tab}>
+          <Tab eventKey="done" title="Done &#10003;" className={styles.tab}>
             <div className={styles.list}>
               {tasks["done"].map((t) => (
                 <TaskCard task={t} key={t.id} />

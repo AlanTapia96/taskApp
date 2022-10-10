@@ -1,0 +1,18 @@
+.buttonsContainer {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.userListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.loaderContainer {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
