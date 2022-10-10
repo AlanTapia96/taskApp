@@ -16,7 +16,7 @@ export function NavbarComp() {
             <Nav.Link as={Link} to="/tasks">
               Tasks
             </Nav.Link>
-            <Nav.Link as={Link} to="/users">
+            <Nav.Link as={Link} to="/user">
               Users
             </Nav.Link>
           </Nav>

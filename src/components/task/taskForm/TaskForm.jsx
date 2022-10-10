@@ -21,7 +21,7 @@ export default function TaskForm() {
       description: description.current.value,
       progress,
     });
-    notify("Task added!");
+    notify("Task added");
     form.current.reset();
     setProgress("default");
   };

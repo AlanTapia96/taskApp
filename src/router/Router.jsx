@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TasksContainer from "../components/task/tasksContainer/TasksContainer";
-import UsersContainer from "../components/users/usersContainer/UsersContainer";
+import UsersContainer from "../components/user/usersContainer/UsersContainer";
 import { NavbarComp as Navbar } from "../navbar/Navbar";
 
 export default function Router() {
@@ -9,7 +9,7 @@ export default function Router() {
       <Navbar />
       <Routes>
         <Route path="/tasks" element={<TasksContainer />} />
-        <Route path="/users" element={<UsersContainer />} />
+        <Route path="/user" element={<UsersContainer />} />
       </Routes>
     </BrowserRouter>
   );
