@@ -10,9 +10,6 @@ export function NavbarComp() {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="ms-auto me-auto">
-            {/* <Nav.Link as={Link} to="">
-              Home
-            </Nav.Link> */}
             <Nav.Link as={Link} to="/tasks">
               Tasks
             </Nav.Link>
