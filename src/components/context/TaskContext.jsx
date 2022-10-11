@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext } from "react";
-import { initialTasks } from "../const/constants";
+import { initialTasks } from "../../const/constants";
 
 export const TaskContext = createContext();
 

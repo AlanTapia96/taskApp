@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Card, Button, DropdownButton, Dropdown, Modal } from "react-bootstrap";
 import { TaskContext } from "../../context/TaskContext";
 import { NotifContext } from "../../context/NotifContext";
-import { cardProgress } from "../../const/constants";
+import { cardProgress } from "../../../const/constants";
 import styles from "./taskCard.module.css";
 
 export default function TaskCard({ task }) {

@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Container, ButtonGroup, Button } from "react-bootstrap";
 import UserList from "../userList/UserList";
-import userService from "../../services/users";
+import userService from "../../../services/users";
 import PaginationComp from "../pagination/Pagination";
 import styles from "./usersContainer.module.css";
 import { PropagateLoader } from "react-spinners";
